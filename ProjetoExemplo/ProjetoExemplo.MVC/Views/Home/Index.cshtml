@@ -10,45 +10,45 @@
 
                     <div class="form-group col-md-6">
                         <label for="textMes">Mês</label>
-                        <input type="text" class="form-control" id="textMes" placeholder="Mês" style="max-width: 100%;" />
+                        <input type="text" class="form-control" id="textMes" disabled="disabled" placeholder="Mês" style="max-width: 100%;" />
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="textAno">Ano</label>
-                        <input type="text" class="form-control" id="textAno" placeholder="Ano" style="max-width: 100%;" />
+                        <input type="text" class="form-control" id="textAno" disabled="disabled" placeholder="Ano" style="max-width: 100%;" />
                     </div>
 
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="slProdutos">Produto</label>
-                        <select id="slProdutos" class="form-control" placeholder="Produto" style="max-width: 50%;">
+                        <select id="slProdutos" class="form-control" disabled="disabled" placeholder="Produto" style="max-width: 50%;">
                         </select>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="slProdutoCosif">Consif</label>
-                        <select id="slProdutoCosif" class="form-control" placeholder="Consif" style="max-width: 50%;">
+                        <select id="slProdutoCosif" class="form-control" disabled="disabled" placeholder="Consif" style="max-width: 50%;">
                         </select>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="textValor">Valor</label>
-                        <input type="text" class="form-control" id="textValor" placeholder="Valor" style="max-width: 50%;" />
+                        <input type="text" class="form-control" id="textValor" disabled="disabled" placeholder="Valor" style="max-width: 50%;" />
                     </div>
 
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="textDescricao">Descrição</label>
-                        <textarea class="form-control" id="textDescricao" placeholder="Descrição" style="max-width: 50%;"></textarea>
+                        <textarea class="form-control" id="textDescricao" disabled="disabled" placeholder="Descrição" style="max-width: 50%;"></textarea>
                     </div>
                 </div>
             </form>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="AdicionarMovimentos();">Novo</button>
-                <button type="button" class="btn btn-primary" id="btnUpdate">Incluir</button>
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="enableForm();">Novo</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" onclick="AdicionarMovimentos();">Incluir</button>
                 <button type="button" class="btn btn-default" id="btnLimpar" onclick="clearTextBox();">Limpar</button>
             </div>
         </div>

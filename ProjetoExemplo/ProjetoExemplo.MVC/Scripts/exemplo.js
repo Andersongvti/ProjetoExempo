@@ -23,7 +23,7 @@ function RetornaTodosOsMovimentos() {
                 html += '<td>' + item.Mes + '</td>';
                 html += '<td>' + item.Ano + '</td>';
                 html += '<td>' + item.CodigoDoProduto + '</td>';
-                html += '<td> </td>';
+                html += '<td>' + item.ProdutoCosif.Produto.DescricaoDoProduto +'</td>';
                 html += '<td>' + item.NumeroLancamento + '</td>';
                 html += '<td>' + item.Descricao + '</td>';
                 html += '<td>' + item.Valor + '</td>';
@@ -103,6 +103,8 @@ function AdicionarMovimentos() {
         contentType: "application/json;charset=utf-8",
         success: function (result) {
             RetornaTodosOsMovimentos();
+            clearTextBox();
+            disableForm();
         },
         error: function (errormessage) {
             console.log(errormessage.responseText);
@@ -169,5 +171,23 @@ function clearTextBox() {
     $('#textDescricao').val("").val('').css('border-color', 'lightgrey');
     $('#slProdutos').val("0").css('border-color', 'lightgrey')
     $('#slProdutoCosif').val("0").css('border-color', 'lightgrey');
+}
+
+function enableForm() {
+    $('#textMes').prop('disabled', false);
+    $('#textAno').prop('disabled', false);
+    $('#textValor').prop('disabled', false);
+    $('#textDescricao').prop('disabled', false);
+    $('#slProdutos').prop('disabled', false);
+    $('#slProdutoCosif').prop('disabled', false);
+}
+
+function disableForm() {
+    $('#textMes').prop('disabled', true);
+    $('#textAno').prop('disabled', true);
+    $('#textValor').prop('disabled', true);
+    $('#textDescricao').prop('disabled', true);
+    $('#slProdutos').prop('disabled', true);
+    $('#slProdutoCosif').prop('disabled', true);
 }
 

@@ -22,7 +22,7 @@ namespace ProjetoExemplo.Api.Controllers
         // GET: api/MovimentosManuais
         public IQueryable<MovimentoManual> GetMovimentosManuais()
         {
-            return db.MovimentosManuais;
+            return db.MovimentosManuais.Include(x => x.ProdutoCosif).Include(x => x.ProdutoCosif.Produto);
         }
 
         // GET: api/MovimentosManuais/5
@@ -83,6 +83,16 @@ namespace ProjetoExemplo.Api.Controllers
             }
 
             movimentoManual.DataMovimento = DateTime.Now;
+
+            var retornoConsulta = db.MovimentosManuais.Where(x => x.Ano == movimentoManual.Ano && x.Mes == movimentoManual.Mes);
+            var maiorNumeroLancamento = 0;
+
+            if (retornoConsulta.Count() > 0)
+            {
+                retornoConsulta.Max(x => x.NumeroLancamento);
+            }
+
+            movimentoManual.NumeroLancamento = maiorNumeroLancamento + 1;
 
             db.MovimentosManuais.Add(movimentoManual);
 
